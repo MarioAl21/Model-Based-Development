@@ -6,15 +6,14 @@ public class PizzaFactoriesStyle {
   Pizza pizza;
   PizzaStore pizza_store;
 
-  /** Pizzas New York style **/
+  /* Pizza New York */
   pizza_store = new NYPizzaStore();
-  pizza_store = new ChicagoPizzaStore();
   pizza = pizza_store.orderPizza("cheese");
   out.println(pizza);
-  
-  /** Pizzas Chicago style **/
-  out.println(pizza_store.getStyle());
-  pizza = pizza_store.orderPizza("veggie");
+
+  /* Pizza New York */
+  pizza_store = new ChicagoPizzaStore();
+  pizza = pizza_store.orderPizza("cheese");
   out.println(pizza);
  } 
 }
@@ -41,8 +40,10 @@ class NYPizzaStore extends PizzaStore {
 
  public Pizza orderPizza(String type) {
   pizza = factory.createPizza(type, style);
-  if(pizza != null)
+  if(pizza != null) {
+   out.println("\n\n--------------- Pizza New York style --------------");
    pizza.addToppingStyle(style);
+  }
   return pizza;
  }
 }
@@ -54,8 +55,10 @@ class ChicagoPizzaStore extends PizzaStore {
   
  public Pizza orderPizza(String type) {
   pizza = factory.createPizza(type, style);
-  if(pizza != null)
+  if(pizza != null) {
+   out.println("\n\n--------------- Pizza Chicago style --------------");
    pizza.addToppingStyle(style);
+  }
   return pizza;
  }
 }
@@ -129,7 +132,7 @@ abstract class Pizza {
  }
 
  public void addToppingStyle(String topping) {
-  toppings.add(topping);
+  toppings.add("Our unique touch : " + topping + ", OUR ORIGINAL STYLE");
  }
 
  public String toString() {
@@ -195,105 +198,3 @@ class ClamPizza extends Pizza {
  } 
 }
 
-// New York style
-class NYStyleCheesePizza extends Pizza {
- public NYStyleCheesePizza() {
-  name = "Cheese Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("Parmesan");
-  toppings.add("Provolone");
-  toppings.add("Cheddar");
-  toppings.add("Ricotta");
-  toppings.add("Romano");
-  toppings.add("Crisp border");
- }
-}
-
-class NYStylePepperoniPizza extends Pizza {
- public NYStylePepperoniPizza() {
-  name = "Pepperoni Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("Parmesan");
-  toppings.add("Pepperoni");
-  toppings.add("Onion");
-  toppings.add("spices");
-  toppings.add("Cheese filled border");
- } 
-}
-
-class NYStyleVeggiePizza extends Pizza {
- public NYStyleVeggiePizza() {
-  name = "Veggie Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("Parmesan");
-  toppings.add("Zucchini");
-  toppings.add("bell peppers");
-  toppings.add("brocolli");
-  toppings.add("spinach");
-  toppings.add("toasted border");
- } 
-}
-
-class NYStyleClamPizza extends Pizza {
- public NYStyleClamPizza() {
-  name = "Veggie Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("clam");
-  toppings.add("Roasted red peppers");
-  toppings.add("Grilled eggplant");
-  toppings.add("Roasted fennel");
-  toppings.add("toasted border");
- } 
-}
-
-// Chicago Style pizza
-// Sub-classes from Pizza - Pizzas on the menu
-class ChicagoStyleCheesePizza extends Pizza {
- public ChicagoStyleCheesePizza() {
-  name = "Cheese Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("Parmesan");
-  toppings.add("Provolone");
-  toppings.add("Cheddar");
-  toppings.add("Ricotta");
-  toppings.add("Romano");
-  toppings.add("Crisp border");
- }
-}
-
-class ChicagoStylePepperoniPizza extends Pizza {
- public ChicagoStylePepperoniPizza() {
-  name = "Pepperoni Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("Parmesan");
-  toppings.add("Pepperoni");
-  toppings.add("Onion");
-  toppings.add("spices");
-  toppings.add("Cheese filled border");
- } 
-}
-
-class ChicagoStyleVeggiePizza extends Pizza {
- public ChicagoStyleVeggiePizza() {
-  name = "Veggie Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("Parmesan");
-  toppings.add("Zucchini");
-  toppings.add("bell peppers");
-  toppings.add("brocolli");
-  toppings.add("spinach");
-  toppings.add("toasted border");
- } 
-}
-
-class ChicagoStyleClamPizza extends Pizza {
- public ChicagoStyleClamPizza() {
-  name = "Veggie Pizza";
-  toppings.add("Mozzarella");
-  toppings.add("clam");
-  toppings.add("Roasted red peppers");
-  toppings.add("Grilled eggplant");
-  toppings.add("Roasted fennel");
-  toppings.add("toasted border");
- } 
-}
