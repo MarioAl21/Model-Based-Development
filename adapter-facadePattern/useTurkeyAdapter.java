@@ -3,11 +3,6 @@ import static java.lang.System.*;
 public class useTurkeyAdapter {
  public static void main(String[] args) {
   Duck duck = new MallardDuck();
-
-  Turkey turkey = new WildTurkey();
-  turkey = new DomesticTurkey();
-  turkey = new OcelattedTurkey();
-  turkey = new NarragansetTurkey();
   Duck turkey_in_disguise = new TurkeyAdapter(turkey);
 
   Turkey duck_in_disguise = new DuckAdapter(duck);
@@ -84,7 +79,7 @@ class DuckAdapter implements Turkey {
  }
 
  public void gobble() {
-  duck.quack(); 
+  duck.quack();
  }
 
  public void fly() {
