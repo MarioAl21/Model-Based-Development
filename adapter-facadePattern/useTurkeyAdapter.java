@@ -3,8 +3,8 @@ import static java.lang.System.*;
 public class useTurkeyAdapter {
  public static void main(String[] args) {
   Duck duck = new MallardDuck();
+  Turkey turkey = new WildTurkey();
   Duck turkey_in_disguise = new TurkeyAdapter(turkey);
-
   Turkey duck_in_disguise = new DuckAdapter(duck);
   
   out.println("\nThe Duck says...");
